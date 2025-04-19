@@ -1,0 +1,1031 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Top 5 Stromsparer des Jahres 2025</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+   
+    <style>
+      .status {
+            color: block;
+            font-size: 18px;
+            text-align: center;
+        }
+        .check-marks {
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            background-color: green;
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 24px;
+            font-size: 16px;
+        }
+        .content {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+        }
+
+        .banner {
+            background-color: #d2d2d2;
+            color: #000000;
+            text-align: center;
+            padding: 10px;
+            margin-bottom: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .product-ranking {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+    }
+  
+    .product-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: stretch;
+      border: 1px solid #ddd;
+      box-shadow: 0 0 20px 1px rgb(84 84 84 / 30%);
+      margin-bottom: 30px;
+      border-radius: 5px;
+      background-color: #f9f9f9;
+      position: relative;
+      box-sizing: border-box;
+    }
+    .product-best{
+      margin: 0;
+      padding: 20px;
+      background-color: #9b1717;
+      color: #FFFFFF;
+      text-align: center;
+      border-top-left-radius: 20px;  /* 左上角圆弧 */
+      border-top-right-radius: 20px; /* 右上角圆弧 */
+    }
+  
+    .first-place {
+      border: 4px solid #3bd11c; /* 第一名的边框颜色 */
+    }
+  
+    /* 排名序号 */
+    .ranking-number {
+      font-size: 24px;
+      font-weight: bold;
+      position: absolute;
+      top: -20px;
+      left: -10px;
+      color: #004cdd;
+      background-color: #fff; /* 圆圈的背景颜色 */
+      border-radius: 50%; /* 设置为圆形 */
+      width: 40px; /* 设置圆圈的宽度 */
+      height: 40px; /* 设置圆圈的高度 */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 3px solid #004cdd; /* 圆圈的边框 */
+    }
+  
+    /* 控制每个部分的占比 */
+    .product-section {
+      padding: 10px;
+      box-sizing: border-box;
+      border-right: 1px solid #ddd;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  
+    .product-section:last-child {
+      border-right: none; /* 移除最后一个部分的右边框 */
+    }
+  
+  .product-section:nth-child(2) {
+      flex: 0 0 20%; /* 设置product-image占比30% */
+  }
+  
+  .product-section:nth-child(3) {
+      flex: 1; /* 设置product-info占比余下的 */
+  }
+  
+  .product-section:nth-child(4) {
+      flex: 0 0 25%; /* 设置product-rating占比30% */
+  }
+  
+    .product-image {
+      
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0 auto; /* 添加此行以确保图片居中对齐 */
+    }
+  
+    .product-image img {
+      width: 100%;
+      object-fit: cover;
+    }
+  
+    .product-info {
+      flex: 1; /* 让product-info占据剩余的可用空间 */
+      margin-left: 20px;
+      text-align: center;
+      padding: 10px; /* 添加内边距 */
+      box-sizing: border-box; /* 确保内边距和边框包含在高度和宽度内 */
+      height: 100%; /* 确保高度覆盖整个父容器 */
+    }
+  
+    .product-info::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: 1px;
+      background-color: #ddd; /* 边框颜色 */
+    }
+  
+    .product-info h3 {
+      margin: 0 0 10px 0;
+      border-bottom: 1px solid #ddd;
+    }
+  
+    .product-description {
+      list-style-type: none;
+      padding: 0;
+      text-align: left;
+      column-count: 2; /* 设置为两列布局 */
+    }
+  
+    .product-description li {
+      display: flex;
+      padding: 5px; /* 添加内边距 */
+      margin-bottom: 5px; /* 添加底部外边距 */
+    }
+  
+    .checkmark {
+      color: green;
+      margin-right: 8px;
+    }
+  
+    .product-rating {
+     
+      margin-top: 20px;
+      flex-direction: column;
+      align-items: center;
+      gap: 5px;
+    }
+  
+    .stars i {
+      font-size: 18px;
+      color: #FFD700;
+      cursor: pointer;
+    }
+  
+    .stars i:hover {
+      color: #FFB700;
+    }
+  
+    .buy-button {
+      width: 90%;
+      padding: 15px 15px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      box-shadow: 0 4px 4px -2px rgba(0, 0, 0, 0.2); /* 添加阴影效果 */
+    }
+  
+    .buy-button:hover {
+      background-color: #45a049;
+    }
+  
+    /* 最好的标记 */
+    .best-label {
+      position: absolute;
+      top: 10px;
+      right: 2px;
+    }
+  
+    .best-label img {
+      height: 47px;
+      margin-top: -35px;
+    }
+  
+    .product-rating h1 {
+      margin: 0; /* 移除默认的上下间距 */
+      font-size: 60px;
+    }
+  
+    .product-rating p {
+      margin: 0; /* 设置 p 标签的上间距为 5px，去除下间距 */
+    }
+    .product-best.mobile-layout{
+    display: none;
+    }
+  
+    @media (max-width: 768px) {
+      .product-item {
+        display: none; /* 隐藏桌面端的布局 */
+      }
+      
+      .product-rating {
+        flex: 0 0 50%; /* 20% 占比 */
+        margin-top: 10px;
+        text-align: center;
+      }
+      .product-image {
+        flex: 0 0 50%; /* 20% 占比 */
+        border-right: 1px solid #ddd;
+      }
+      .mobile-layout {
+        display: block; /* 显示移动端的布局 */
+        border: 1px solid #ddd;
+        padding: 15px;
+        border-radius: 5px;
+        background-color: #f9f9f9;
+        position: relative;
+      }
+  
+      .mobile-image-rating {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 10px;
+        padding-bottom: 10px; /* 添加内边距 */
+      }
+  
+      .mobile-layout h3 {
+        text-align: center;
+        margin: 10px 0 10px 0;
+        padding-bottom: 10px; /* 添加内边距 */
+        border-bottom: 1px solid #ddd;
+      }
+  
+      .mobile-layout .product-description {
+        text-align: left;
+        margin-bottom: 10px;
+        column-count: 1;
+        padding-bottom: 10px; /* 添加内边距 */
+      }
+  
+      .mobile-layout .buy-button {
+        display: block;
+        width: 100%;
+      }
+  
+      .ranking-number {
+        font-size: 24px;
+        font-weight: bold;
+        position: absolute;
+        top: -20px;
+        left: -10px;
+        color: #004cdd;
+        background-color: #fff;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 3px solid #004cdd;
+      }
+      .product-description li {
+      padding: 1px; /* 添加内边距 */
+    }
+  
+      .best-label {
+        position: absolute;
+        top: 10px;
+        right: 2px;
+      }
+      .best-label img {
+        height: 30px;
+      }
+      .product-best{
+     display: none; 
+    }
+    .product-best.mobile-layout{
+      display: block;
+      margin-top: 20px;
+      padding: 10px;
+      background-color: #9b1717;
+      color: #FFFFFF;
+      text-align: center;
+      border-top-left-radius: 10px;  /* 左上角圆弧 */
+      border-top-right-radius: 10px; /* 右上角圆弧 */
+      
+    }
+     
+    }
+    
+  
+    @media (min-width: 769px) {
+      .mobile-layout {
+        display: none; /* 隐藏移动端的布局 */
+      }
+    }
+  
+    .mobile-layout.first-place {
+      border: 4px solid #3bd11c; /* 应用第一名的边框颜色 */
+    }
+  
+    .content h2, .content h3 {
+        color: #2c3e50; /* 更改标题颜色为深蓝色 */
+    }
+    .content img {
+        display: block;
+        margin: -20px auto;
+        max-width: 100%;
+    }
+    .customer-reviews {
+        background-color: #f8f9fa;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        margin-top: 40px;
+    }
+    .customer-reviews h3 {
+        text-align: center;
+        color: #2c3e50;
+        margin-bottom: 20px;
+    }
+    .review {
+        margin-bottom: 20px;
+        padding: 15px;
+        border-left: 4px solid #4CAF50;
+        background-color: #fff;
+        border-radius: 5px;
+    }
+    .review strong {
+        display: block;
+        margin-top: 10px;
+        color: #555;
+    }
+    /* Enhance modal style */
+    .modal-content {
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    }
+    .modal-header {
+        background-color: #4CAF50;
+        color: white;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+    }
+    .modal-footer {
+        border-top: none;
+    }
+    /* Enhance Results and Order sections */
+    h3 {
+        color: #4CAF50;
+        margin-top: 30px;
+    }
+    ol {
+        padding-left: 20px;
+        list-style-type: decimal;
+    }
+    ol li {
+        margin-bottom: 10px;
+    }
+    .results-section, .order-section {
+        background-color: #f8f9fa;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        margin-top: 20px;
+    }
+    /* Center the modal on the screen */
+    .modal-dialog {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+    }
+    /* Ensure the close button works */
+    .close {
+        cursor: pointer;
+    }
+    /* Adjust modal to not cover the entire page */
+    .modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+        z-index: 1050;
+    }
+    .modal-dialog {
+        margin: 30px auto;
+    }
+    @media (max-width: 768px) {
+        .order-section {
+            padding: 10px; /* 减少内边距以适应小屏幕 */
+            font-size: 14px; /* 调整字体大小 */
+        }
+        .order-section ol {
+            padding-left: 15px; /* 减少列表的左边距 */
+        }
+        .order-section ol li {
+            margin-bottom: 8px; /* 减少列表项的底部外边距 */
+        }
+    }
+    .order-section {
+        max-width: 100%; /* 确保内容不超出屏幕宽度 */
+        overflow-x: auto; /* 允许水平滚动 */
+    }
+    .center-image {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .discount-tooltip {
+        position: absolute;
+        bottom: -50px;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: #fff8e1; /* 更改为柔和的黄色 */
+        color: #1900ff;
+        padding: 10px 15px;
+        border-radius: 8px;
+        font-size: 14px;
+        font-weight: bold;
+        white-space: nowrap;
+        z-index: 1000;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        border: 2px dashed #ffcc00; /* 添加虚线边框 */
+    }
+    </style>
+</head>
+<body>
+    <!-- Remove Welcome Modal -->
+    <!-- Product 1 Modal -->
+    <div id="product1Modal" class="modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"> <i class="fa fa-clock-o" aria-hidden="true"></i> BEGRENZTE ZEIT</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Schließen">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" style="text-align: center;">
+                    <img src="style//Nuubu.jpg" alt="Nuubu" style="width:50%; margin-bottom: 15px;">
+                    <p>Erhalten Sie heute 70% Rabatt!</p>
+                    <p>Kaufen Sie jetzt Nuubu Detox Fußpflaster und erhalten Sie 70% Rabatt auf den Originalpreis.</p>
+                </div>
+                <div class="modal-footer">
+                    <a href="../audetox/click" class="buy-button" style="text-align: center; width: 100%; box-shadow: 0 4px 4px 1px rgba(0, 0, 0, 0.8); position: relative;">HIER KLICKEN, UM JETZT ZU SPAREN <i class="fa fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="content">
+        <div class="banner"><h1>Top 5 Beste Detox Fußpflaster unter 20 € im Jahr 2025</h1>
+          
+        </div>
+        <div class="status">
+          <span class="check-marks">&#10003;</span> Letzte Aktualisierung: <span id="currentDate"></span>
+      </div>
+      <br>
+        
+        <br>
+        <p>Fühlen Sie es auch? Ihr Körper sendet Signale!
+          Ständige Müdigkeit, unerklärliche Gewichtszunahme, ein Gefühl von Schwere im Alltag – all das sind Zeichen dafür, dass unser Körper mit inneren Belastungen kämpft. In der heutigen Welt sind wir tagtäglich Umweltgiften, Stress und unausgewogener Ernährung ausgesetzt. Kein Wunder also, dass unser Organismus irgendwann aus dem Gleichgewicht gerät.</p>
+        <p>Doch was, wenn es eine einfache, natürliche Möglichkeit gäbe, den Körper sanft zu entlasten und wieder ins Gleichgewicht zu bringen?</p>
+        <p>Detox-Fußpflaster: Die sanfte Methode zur nächtlichen Entgiftung</p>
+        <p>Detox-Fußpflaster: Die sanfte Methode zur nächtlichen Entgiftung
+          Detox-Fußpflaster erfreuen sich weltweit immer größerer Beliebtheit – und das aus gutem Grund. Während Sie schlafen, unterstützen diese Pflaster Ihren Körper dabei, schädliche Toxine auszuscheiden, die sich über Jahre hinweg angesammelt haben. Das Ergebnis? Ein erfrischteres Körpergefühl, mehr Energie und oft sogar ein Rückgang von Beschwerden wie Schlaflosigkeit, Kopfschmerzen oder träge Verdauung.</p>
+        <p>Nach über 30 getesteten Produkten und hunderten Stunden Analyse steht fest:</p>
+        <p>Nur wenige Detox-Fußpflaster halten, was sie versprechen.
+          👉 Welche wirklich wirken? Hier kommt unser Ranking!</p>
+        <h4>Nach umfangreichen Tests sind wir zu den endgültigen Ergebnissen gekommen. Lesen Sie weiter, um herauszufinden, welche Detox Fußpflaster herausragen.</h4>
+        <br>
+        <p style="text-align: center;"><strong>Wir setzen extrem hohe Teststandards für unsere Leser, damit Sie sich bei unseren Empfehlungen sicher fühlen können. Unser Ziel ist es, mehr Verbrauchern zu helfen, Geld und Zeit durch unser professionelles Expertenteam zu sparen.</strong></p>
+
+        <div class="product-ranking"><span data-mce-type="bookmark" style="display: inline-block; width: 0px; overflow: hidden; line-height: 0;" class="mce_SELRES_start">﻿</span><!-- 排行框 -->
+          <div class="product-item first-place"><!-- 排名序号 -->
+          <div class="ranking-number">#1</div>
+          <!-- 产品图片 -->
+          <div class="product-section">
+          <div class="product-image"><img src="style//Nuubu.jpg" alt="产品1" /></div>
+          </div>
+          <!-- 产品信息：标题和描述 -->
+          <div class="product-section">
+          <div class="product-info">
+          <h3>Nuubu Detox Foot Pads</h3>
+          <ul class="product-description">
+          <li><span class="checkmark">✅</span> Sehr effektiv zur Entgiftung des Körpers und zur Steigerung der Energie</li>
+          <li><span class="checkmark">✅</span> 100% natürliche Inhaltsstoffe (Bambusessig, Kräuter, Mineralien)</li>
+          <li><span class="checkmark">✅</span> Sanft zur Haut – geeignet für empfindliche Hauttypen</li>
+          <li><span class="checkmark">✅</span> Hilft bei Stimmungsschwankungen und mentaler Erschöpfung</li>
+          <li><span class="checkmark">✅</span> Verbessert die Schlafqualität und das allgemeine Wohlbefinden</li>
+          <li><span class="checkmark">✅</span> Lindert Stress und Müdigkeit</li>
+          <li><span class="checkmark">✅</span> Keine Reizungen oder unangenehmen Nebenwirkungen</li>
+          <li><span class="checkmark">✅</span> Einfach zu verwenden – einfach über Nacht anwenden für maximale Wirkung</li>
+          <li><span class="checkmark">✅</span> 30 Tage Geld-zurück-Garantie</li>
+          <li><span class="checkmark" style="color: red;">❌</span> Hohe Nachfrage – oft schnell ausverkauft</li>
+          </ul>
+          </div>
+          </div>
+          <!-- 评分与产品引导按钮 -->
+          <div class="product-section">
+          <div class="product-rating">
+          <div class="stars">
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star-half-o"></i>
+          </div>
+          <h1>9.8</h1>
+          <h2>Ausgezeichnet</h2>
+          <small class="text-muted">Benutzerbewertungen (13,327)</small>
+          <a style="text-decoration: none; width: 100%; position: relative;" href="../audetox/click"> <button class="buy-button" style="box-shadow: 0 4px 4px 1px rgba(0, 0, 0, 0.8); position: relative;"> SEITE BESUCHEN<i class="fa fa-arrow-right"></i> <span class="discount-tooltip"> 70% Rabatt </span> </button> </a>
+          
+          </div>
+          </div>
+          <!-- 最好的标记 -->
+          <div class="best-label"><img src="style/limited-offer-smaller.png" alt="Best" /></div>
+          </div>
+          <div class="product-item">
+          <div class="ranking-number">#2</div>
+          <div class="product-section">
+          <div class="product-image"><img src="style//purisaki.jpg" alt="产品2" /></div>
+          </div>
+          <div class="product-section">
+          <div class="product-info">
+          <h3>purisaki Detox Foot Pads</h3>
+          <ul class="product-description">
+          <li><span class="checkmark">✅</span> 100% natürliche Inhaltsstoffe – frei von toxischen Chemikalien und harten Substanzen</li>
+          <li><span class="checkmark">✅</span> Diese Formel ist seit mehreren hundert Jahren alt</li>
+          <li><span class="checkmark">✅</span> Kann Müdigkeit lindern und den Schlaf verbessern</li>
+          <li><span class="checkmark">✅</span> Einfach zu verwenden – einfach herausnehmen und unter die Füße kleben</li>
+          <li><span class="checkmark">✅</span> Die weltweit erste Fußpflaster mit Elektromagnetischem Tourmalinkristalltechnologie – die Wirkung ist sichtbar</li>
+          <li><span class="checkmark">✅</span> Begrenzter Zeitrabatt von 70%</li>
+          <li><span class="checkmark">✅</span> Toxine sind durch Farbveränderung sichtbar</li>
+          <li><span class="checkmark" style="color: red;">❌</span> Hohe Nachfrage – oft schnell ausverkauft</li>
+          </ul>
+          </div>
+          </div>
+          <div class="product-section">
+          <div class="product-rating">
+          <div class="stars">
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star-o"></i>
+          </div>
+          <h1>9.5</h1>
+          <h2>Sehr gut</h2>
+          <small class="text-muted">Benutzerbewertungen (8,765)</small>
+          <button class="buy-button" style="box-shadow: 0 4px 4px 1px rgba(0, 0, 0, 0.8); position: relative;" onclick="window.location.href='../audetox/click/2'">SEITE BESUCHEN<i class="fa fa-arrow-right"></i></button></div>
+          </div>
+          </div>
+          <div class="product-item">
+          <div class="ranking-number">#3</div>
+          <div class="product-section">
+          <div class="product-image"><img src="style//kinoki.jpg" alt="产品3" /></div>
+          </div>
+          <div class="product-section">
+          <div class="product-info">
+          <h3>Kinoki Detox Foot Pads</h3>
+          <ul class="product-description">
+          <li><span class="checkmark">✅</span> Gut für die Entgiftung der Füße und die Reduzierung von Fußgeruch</li>
+          <li><span class="checkmark">✅</span> Enthält natürliche Kräuterinhaltsstoffe für sanfte Entgiftung</li>
+          <li><span class="checkmark">✅</span> Fördert das Wohlbefinden und hilft bei Entspannung</li>
+          <li><span class="checkmark">✅</span> Einfach zu verwenden – vor dem Schlafengehen auftragen, wirkt über Nacht</li>
+          <li><span class="checkmark" style="color: red;">❌</span> Klebriger Kleber kann unangenehm sein</li>
+          <li><span class="checkmark" style="color: red;">❌</span> Wirksamkeit variiert von Person zu Person</li>
+          <li><span class="checkmark" style="color: red;">❌</span> Kann bei empfindlicher Haut leicht Reizungen verursachen</li>
+          </ul>
+          </div>
+          </div>
+          <div class="product-section">
+          <div class="product-rating">
+          <div class="stars">
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star-half-o"></i>
+              <i class="fa fa-star-o"></i>
+          </div>
+          <h1>8.5</h1>
+          <h2>Gut</h2>
+          <small class="text-muted">Benutzerbewertungen (5,432)</small>
+          <button class="buy-button" style="box-shadow: 0 4px 4px 1px rgba(0, 0, 0, 0.8); position: relative;" onclick="window.location.href='../audetox/click/3'">SEITE BESUCHEN<i class="fa fa-arrow-right"></i></button></div>
+          </div>
+          </div>
+          <div class="product-item">
+          <div class="ranking-number">#4</div>
+          <div class="product-section">
+          <div class="product-image"><img src="style//dr.jpg" alt="产品4" /></div>
+          </div>
+          <div class="product-section">
+          <div class="product-info">
+          <h3>Dr. Entre's Foot Pads</h3>
+          <ul class="product-description">
+          <li><span class="checkmark">✅</span> Fördert besseren Schlaf und Entspannung</li>
+          <li><span class="checkmark">✅</span> Unterstützt die Gesundheit der Füße insgesamt</li>
+          <li><span class="checkmark">✅</span> Einfach zu verwenden – über Nacht auftragen</li>
+          <li><span class="checkmark" style="color: red;">❌</span> Weniger effektiv als einige der Top-bewerteten Pads</li>
+          <li><span class="checkmark" style="color: red;">❌</span> Ergebnisse nicht sofort sichtbar</li>
+          <li><span class="checkmark" style="color: red;">❌</span> Kann etwas unordentlich durch klebrigen Rückstand werden</li>
+          <li><span class="checkmark" style="color: red;">❌</span> Chemischer Geruch</li>
+          </ul>
+          </div>
+          </div>
+          <div class="product-section">
+          <div class="product-rating">
+          <div class="stars">
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star-half-o"></i>
+              <i class="fa fa-star-o"></i>
+              <i class="fa fa-star-o"></i>
+          </div>
+          <h1>7.8</h1>
+          <h2>Durchschnittlich</h2>
+          <small class="text-muted">Benutzerbewertungen (4,321)</small>
+          <button class="buy-button" style="box-shadow: 0 4px 4px 1px rgba(0, 0, 0, 0.8); position: relative;" onclick="window.location.href='../audetox/click/4'">SEITE BESUCHEN<i class="fa fa-arrow-right"></i></button></div>
+          </div>
+          </div>
+          <div class="product-item">
+          <div class="ranking-number">#5</div>
+          <div class="product-section">
+          <div class="product-image"><img src="style//Xitox.jpg" alt="产品5" /></div>
+          </div>
+          <div class="product-section">
+          <div class="product-info">
+          <h3>Xitox Foot Pads</h3>
+          <ul class="product-description">
+          <li><span class="checkmark">✅</span> Hochwertige Materialien</li>
+          <li><span class="checkmark">✅</span> Natürliche und sichere Entgiftung</li>
+          <li><span class="checkmark">✅</span> Geprüfte und zertifizierte Formel</li>
+          <li><span class="checkmark" style="color: red;">❌</span> Leichte Hautreizung</li>
+          <li><span class="checkmark" style="color: red;">❌</span> Teuerstes Produkt</li>
+          </ul>
+          </div>
+          </div>
+          <div class="product-section">
+          <div class="product-rating">
+          <div class="stars">
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star-half-o"></i>
+              <i class="fa fa-star-o"></i>
+              <i class="fa fa-star-o"></i>
+          </div>
+          <h1>7.1</h1>
+          <h2>Durchschnittlich</h2>
+          <small class="text-muted">Benutzerbewertungen (3,210)</small>
+          <button class="buy-button" style="box-shadow: 0 4px 4px 1px rgba(0, 0, 0, 0.8); position: relative;" onclick="window.location.href='../audetox/click/5'">SEITE BESUCHEN<i class="fa fa-arrow-right"></i></button></div>
+          </div>
+          </div>
+          <!-- 产品1重复引导 -->
+          <div class="product-best">Bester Detox Fußpflaster Gesamt</div>
+          <div class="product-item"><!-- 排名序号 -->
+          <div class="product-section" style="display: none;"> </div>
+          <!-- 产品图片 -->
+          <div class="product-section">
+          <div class="product-image"><img src="style//Nuubu.jpg" alt="产品1" /></div>
+          </div>
+          <!-- 产品信息：标题和描述 -->
+          <div class="product-section">
+          <div class="product-info">
+          <h3>Nuubu Detox Foot Pads</h3>
+          <ul class="product-description">
+          <li><span class="checkmark">✅</span> Sehr effektiv zur Entgiftung des Körpers und zur Steigerung der Energie</li>
+          <li><span class="checkmark">✅</span> 100% natürliche Inhaltsstoffe (Bambusessig, Kräuter, Mineralien)</li>
+          <li><span class="checkmark">✅</span> Sanft zur Haut – geeignet für empfindliche Hauttypen</li>
+          <li><span class="checkmark">✅</span> Hilft bei Stimmungsschwankungen und mentaler Erschöpfung</li>
+          <li><span class="checkmark">✅</span> Verbessert die Schlafqualität und das allgemeine Wohlbefinden</li>
+          <li><span class="checkmark">✅</span> Lindert Stress und Müdigkeit</li>
+          <li><span class="checkmark">✅</span> Keine Reizungen oder unangenehmen Nebenwirkungen</li>
+          <li><span class="checkmark">✅</span> Einfach zu verwenden – einfach über Nacht anwenden für maximale Wirkung</li>
+          <li><span class="checkmark">✅</span> 30 Tage Geld-zurück-Garantie</li>
+          <li><span class="checkmark" style="color: red;">❌</span> Hohe Nachfrage – oft schnell ausverkauft</li>
+          </ul>
+          </div>
+          </div>
+          <!-- 评分与产品引导按钮 -->
+          <div class="product-section">
+          <div class="product-rating">
+          <div class="stars">
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star-half-o"></i>
+          </div>
+          <h1>9.8</h1>
+          <h2>Ausgezeichnet</h2>
+          <small class="text-muted">Benutzerbewertungen (13,327)</small>
+          <a style="text-decoration: none; width: 100%; position: relative;" href="../audetox/click"> <button class="buy-button" style="box-shadow: 0 4px 4px 1px rgba(0, 0, 0, 0.8); position: relative;"> SEITE BESUCHEN <i class="fa fa-arrow-right"></i> <span class="discount-tooltip"> 70% Rabatt </span><span class="discount-tooltip"> 70% Rabatt </span></button> </a></div>
+          </div>
+          <!-- 最好的标记 -->
+          <div class="best-label"><img src="style/limited-offer-smaller.png" alt="Best" /></div>
+          </div>
+          <!-- 产品1重复引导 -->
+          <div class="product-item mobile-layout first-place">
+          <div class="ranking-number">#1</div>
+          <h3>Nuubu Detox Fußpflaster</h3>
+          <div class="mobile-image-rating">
+          <div class="product-image"><img src="style//Nuubu.jpg" alt="产品1" /></div>
+          <div class="product-rating">
+          <div class="stars">
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star-half-o"></i>
+          </div>
+          <h1>9.8</h1>
+          <h2 style="font-size: 22px;">Ausgezeichnet</h2>
+          <small class="text-muted">Benutzerbewertungen (13,327)</small>
+          </div>
+          </div>
+          <ul class="product-description">
+          <li><span class="checkmark">✅</span> Sehr effektiv zur Entgiftung des Körpers und zur Steigerung der Energie</li>
+          <li><span class="checkmark">✅</span> 100% natürliche Inhaltsstoffe (Bambusessig, Kräuter, Mineralien)</li>
+          <li><span class="checkmark">✅</span> Sanft zur Haut – geeignet für empfindliche Hauttypen</li>
+          <li><span class="checkmark">✅</span> Hilft bei Stimmungsschwankungen und mentaler Erschöpfung</li>
+          <li><span class="checkmark">✅</span> Verbessert die Schlafqualität und das allgemeine Wohlbefinden</li>
+          <li><span class="checkmark">✅</span> Lindert Stress und Müdigkeit</li>
+          <li><span class="checkmark">✅</span> Keine Reizungen oder unangenehmen Nebenwirkungen</li>
+          <li><span class="checkmark">✅</span> Einfach zu verwenden – einfach über Nacht anwenden für maximale Wirkung</li>
+          <li><span class="checkmark">✅</span> 30 Tage Geld-zurück-Garantie</li>
+          <li><span class="checkmark" style="color: red;">❌</span> Hohe Nachfrage – oft schnell ausverkauft</li>
+          </ul>
+          <a style="text-decoration: none; width: 100%; position: relative;" href="../audetox/click"> <button class="buy-button" style="box-shadow: 0 4px 4px 1px rgba(0, 0, 0, 0.8); position: relative;"> SEITE BESUCHEN<i class="fa fa-arrow-right"></i><span class="discount-tooltip"> 70% Rabatt </span></button> </a>
+          <div class="best-label"><img src="style/limited-offer-smaller.png" alt="Best" /></div>
+          </div>
+          <div class="product-item mobile-layout">
+          <div class="ranking-number">#2</div>
+          <h3>purisaki Detox Fußpflaster</h3>
+          <div class="mobile-image-rating">
+          <div class="product-image"><img src="style//purisaki.jpg" alt="产品2" /></div>
+          <div class="product-rating">
+          <div class="stars">
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star-o"></i>
+          </div>
+          <h1>9.5</h1>
+          <h2 style="font-size: 22px;">Sehr gut</h2>
+          <small class="text-muted">Benutzerbewertungen (8,765)</small>
+          </div>
+          </div>
+          <ul class="product-description">
+          <li><span class="checkmark">✅</span> 100% natürliche Inhaltsstoffe – frei von toxischen Chemikalien und harten Substanzen</li>
+          <li><span class="checkmark">✅</span> Diese Formel ist seit mehreren hundert Jahren alt</li>
+          <li><span class="checkmark">✅</span> Kann Müdigkeit lindern und den Schlaf verbessern</li>
+          <li><span class="checkmark">✅</span> Einfach zu verwenden – einfach herausnehmen und unter die Füße kleben</li>
+          <li><span class="checkmark">✅</span> Die weltweit erste Fußpflaster mit Elektromagnetischem Tourmalinkristalltechnologie – die Wirkung ist sichtbar</li>
+          <li><span class="checkmark">✅</span> Begrenzter Zeitrabatt von 70%</li>
+          <li><span class="checkmark">✅</span> Toxine sind durch Farbveränderung sichtbar</li>
+          <li><span class="checkmark" style="color: red;">❌</span> Hohe Nachfrage – oft schnell ausverkauft</li>
+          </ul>
+          <button class="buy-button" style="box-shadow: 0 4px 4px 1px rgba(0, 0, 0, 0.8); position: relative;" onclick="window.location.href='../audetox/click/2'">SEITE BESUCHEN<i class="fa fa-arrow-right"></i></button></div>
+          <div class="product-item mobile-layout">
+          <div class="ranking-number">#3</div>
+          <h3>Kinoki Detox Fußpflaster</h3>
+          <div class="mobile-image-rating">
+          <div class="product-image"><img src="style//kinoki.jpg" alt="产品3" /></div>
+          <div class="product-rating">
+          <div class="stars">
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star-half-o"></i>
+              <i class="fa fa-star-o"></i>
+          </div>
+          <h1>8.5</h1>
+          <h2 style="font-size: 22px;">Gut</h2>
+          <small class="text-muted">Benutzerbewertungen (5,432)</small>
+          </div>
+          </div>
+          <ul class="product-description">
+          <li><span class="checkmark">✅</span> Gut für die Entgiftung der Füße und die Reduzierung von Fußgeruch</li>
+          <li><span class="checkmark">✅</span> Enthält natürliche Kräuterinhaltsstoffe für sanfte Entgiftung</li>
+          <li><span class="checkmark">✅</span> Fördert das Wohlbefinden und hilft bei Entspannung</li>
+          <li><span class="checkmark">✅</span> Einfach zu verwenden – vor dem Schlafengehen auftragen, wirkt über Nacht</li>
+          <li><span class="checkmark" style="color: red;">❌</span> Klebriger Kleber kann unangenehm sein</li>
+          <li><span class="checkmark" style="color: red;">❌</span> Wirksamkeit variiert von Person zu Person</li>
+          <li><span class="checkmark" style="color: red;">❌</span> Kann bei empfindlicher Haut leicht Reizungen verursachen</li>
+          </ul>
+          <button class="buy-button" style="box-shadow: 0 4px 4px 1px rgba(0, 0, 0, 0.8); position: relative;" onclick="window.location.href='../audetox/click/3'">SEITE BESUCHEN<i class="fa fa-arrow-right"></i></button></div>
+          <div class="product-item mobile-layout">
+          <div class="ranking-number">#4</div>
+          <h3>Dr. Entre's Fußpflaster</h3>
+          <div class="mobile-image-rating">
+          <div class="product-image"><img src="style//dr.jpg" alt="产品4" /></div>
+          <div class="product-rating">
+          <div class="stars">
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star-half-o"></i>
+              <i class="fa fa-star-o"></i>
+              <i class="fa fa-star-o"></i>
+          </div>
+          <h1>7.8</h1>
+          <h2 style="font-size: 22px;">Durchschnittlich</h2>
+          <small class="text-muted">Benutzerbewertungen (4,321)</small>
+          </div>
+          </div>
+          <ul class="product-description">
+          <li><span class="checkmark">✅</span> Fördert besseren Schlaf und Entspannung</li>
+          <li><span class="checkmark">✅</span> Unterstützt die Gesundheit der Füße insgesamt</li>
+          <li><span class="checkmark">✅</span> Einfach zu verwenden – über Nacht auftragen</li>
+          <li><span class="checkmark" style="color: red;">❌</span> Weniger effektiv als einige der Top-bewerteten Pads</li>
+          <li><span class="checkmark" style="color: red;">❌</span> Ergebnisse nicht sofort sichtbar</li>
+          <li><span class="checkmark" style="color: red;">❌</span> Kann etwas unordentlich durch klebrigen Rückstand werden</li>
+          <li><span class="checkmark" style="color: red;">❌</span> Chemischer Geruch</li>
+          </ul>
+          <button class="buy-button" style="box-shadow: 0 4px 4px 1px rgba(0, 0, 0, 0.8); position: relative;" onclick="window.location.href='../audetox/click/4'">SEITE BESUCHEN<i class="fa fa-arrow-right"></i></button></div>
+          <div class="product-item mobile-layout">
+          <div class="ranking-number">#5</div>
+          <h3>Xitox Fußpflaster</h3>
+          <div class="mobile-image-rating">
+          <div class="product-image"><img src="style//Xitox.jpg" alt="产品5" /></div>
+          <div class="product-rating">
+          <div class="stars">
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star-half-o"></i>
+              <i class="fa fa-star-o"></i>
+              <i class="fa fa-star-o"></i>
+          </div>
+          <h1>7.1</h1>
+          <h2 style="font-size: 22px;">Durchschnittlich</h2>
+          <small class="text-muted">Benutzerbewertungen (3,210)</small>
+          </div>
+          </div>
+          <ul class="product-description">
+          <li><span class="checkmark">✅</span> Hochwertige Materialien</li>
+          <li><span class="checkmark">✅</span> Natürliche und sichere Entgiftung</li>
+          <li><span class="checkmark">✅</span> Geprüfte und zertifizierte Formel</li>
+          <li><span class="checkmark" style="color: red;">❌</span> Leichte Hautreizung</li>
+          <li><span class="checkmark" style="color: red;">❌</span> Teuerstes Produkt</li>
+          </ul>
+          <button class="buy-button" style="box-shadow: 0 4px 4px 1px rgba(0, 0, 0, 0.8); position: relative;" onclick="window.location.href='../audetox/click/5'">SEITE BESUCHEN<i class="fa fa-arrow-right"></i></button></div>
+          </div>
+          <!-- 产品1重复引导 -->
+          <div class="product-best mobile-layout">Bester Gesamtsieger</div>
+          <div class="product-item mobile-layout first-place">
+          <h3>Nuubu Detox Fußpflaster</h3>
+          <div class="mobile-image-rating">
+          <div class="product-image"><img src="style//Nuubu.jpg" alt="产品1" /></div>
+          <div class="product-rating">
+          <div class="stars">
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star-half-o"></i>
+          </div>
+          <h1>9.8</h1>
+          <h2 style="font-size: 22px;">Ausgezeichnet</h2>
+          <small class="text-muted">Benutzerbewertungen (13,327)</small>
+          </div>
+          </div>
+          <ul class="product-description">
+          <li><span class="checkmark">✅</span> Sehr effektiv zur Entgiftung des Körpers und zur Steigerung der Energie</li>
+          <li><span class="checkmark">✅</span> 100% natürliche Inhaltsstoffe (Bambusessig, Kräuter, Mineralien)</li>
+          <li><span class="checkmark">✅</span> Sanft zur Haut – geeignet für empfindliche Hauttypen</li>
+          <li><span class="checkmark">✅</span> Hilft bei Stimmungsschwankungen und mentaler Erschöpfung</li>
+          <li><span class="checkmark">✅</span> Verbessert die Schlafqualität und das allgemeine Wohlbefinden</li>
+          <li><span class="checkmark">✅</span> Lindert Stress und Müdigkeit</li>
+          <li><span class="checkmark">✅</span> Keine Reizungen oder unangenehmen Nebenwirkungen</li>
+          <li><span class="checkmark">✅</span> Einfach zu verwenden – einfach über Nacht anwenden für maximale Wirkung</li>
+          <li><span class="checkmark">✅</span> 30 Tage Geld-zurück-Garantie</li>
+          <li><span class="checkmark" style="color: red;">❌</span> Hohe Nachfrage – oft schnell ausverkauft</li>
+          </ul>
+          <a style="text-decoration: none; width: 100%; position: relative;" href="../audetox/click"> <button class="buy-button" style="box-shadow: 0 4px 4px 1px rgba(0, 0, 0, 0.8); position: relative;"> SEITE BESUCHEN<i class="fa fa-arrow-right"></i><span class="discount-tooltip"> 70% Rabatt </span> </button> </a>
+          <div class="best-label"><img src="style/limited-offer-smaller.png" alt="Best" /></div>
+          </div>
+          
+
+        <h2>Wir haben die meistverkauften Detox-Fußpflaster gekauft und getestet, hier ist der Grund, warum Nuubu Detox-Fußpflaster die Nummer 1 sind:</h2>
+        <p>Geschrieben von Emily Roberts – Aktualisiert am 16. April 2025</p>
+        <p>Nach umfangreichen Tests haben sich die Nuubu Detox-Fußpflaster als weit überlegen gegenüber allen anderen von uns getesteten Entgiftungsprodukten erwiesen, was sie zu unserer Top-Wahl für die Entgiftung im Jahr 2025 macht.</p>
+        <br>
+        <img src="style/nuubu-foot-patch2.jpg" alt="Nuubu Foot Patch">
+        <br>
+        <p>Was die Nuubu Detox-Fußpflaster von der Konkurrenz abhebt, ist ihre kraftvolle, rein natürliche Formel, die in nur wenigen Tagen bemerkenswerte Ergebnisse liefert. Diese Fußpflaster wirken, während Sie schlafen, und absorbieren über Nacht Toxine und Verunreinigungen aus Ihrem Körper. Gefüllt mit natürlichen Inhaltsstoffen wie Bambusessig, Kräutern und Mineralien bieten die Nuubu Detox-Fußpflaster eine ganzheitliche Entgiftungslösung, die sowohl effektiv als auch sicher für alle Hauttypen ist.</p> 
+        <p>Was uns während unserer Tests wirklich beeindruckt hat, war, wie schnell die Nuubu Detox-Fußpflaster das allgemeine Wohlbefinden verbesserten. Nach nur wenigen Nächten der Anwendung berichteten Benutzer von gesteigerten Energieniveaus, besserer Schlafqualität und einer spürbaren Reduzierung von Fußgeruch. Die Wirksamkeit der Pflaster beim Herausziehen von Toxinen ist unübertroffen und übertrifft alle anderen von uns getesteten Entgiftungspflaster.</p>
+        <p>Ein weiteres herausragendes Merkmal ist die Benutzerfreundlichkeit. Einfach die Pflaster vor dem Schlafengehen auftragen, und sie wirken über Nacht. Am Morgen lassen sich die Pflaster leicht entfernen und hinterlassen ein erfrischtes und verjüngtes Gefühl an den Füßen. Im Gegensatz zu anderen Entgiftungsmethoden, die zeitaufwändige Regime erfordern, machen die Nuubu Detox-Fußpflaster die Entgiftung mühelos und bequem.</p>
+        <p><button class="buy-button" style="box-shadow: 0 4px 4px 1px rgba(0, 0, 0, 0.8); position: relative;" onclick="window.location.href='../audetox/click'">Besuchen Sie den offiziellen Nuubu-Shop und sichern Sie sich 70% Rabatt</button></p>
+        <h3>Ergebnisse:</h3>
+        <br>
+        <img src="style/nuubu-foot-patch4.jpg" alt="Nuubu Foot Patch">
+        <br>
+        <div class="results-section">
+            <ol>
+                <li><strong>Verpackung und erster Eindruck:</strong> Die Verpackung der Nuubu-Pads sah großartig aus und bot während des Transports hervorragenden Schutz. Beim Öffnen der Packungen fiel uns als erstes der angenehme minzige Duft auf, im Gegensatz zu den chemischen Gerüchen einiger anderer von uns getesteter Pads.</li>
+                <li><strong>Benutzerfreundlichkeit: </strong> Die Verwendung der Nuubu-Pads war im Vergleich zu billigeren, minderwertigen Marken einfach und unkompliziert. Alles, was Sie tun müssen, ist, sie abzuziehen und auf die Mitte Ihrer Füße aufzutragen. Es gibt keine klebrigen Schalen oder Komplikationen.</li>
+                <li><strong>Wirksamkeit: </strong> Von den 12 getesteten Produkten blieben nur 8 die ganze Nacht sicher am Fuß. Die anderen verursachten entweder ein Chaos oder fielen beim Herumlaufen ab. Nuubu hatte jedoch den besten Halt, blieb über Nacht an Ort und Stelle und ließ sich morgens dennoch leicht entfernen.</li>
+                <li><strong>Echte Ergebnisse:</strong> Einige der anderen von uns getesteten Produkte machten außergewöhnliche Behauptungen, versprachen sogar, eine Reihe von Krankheiten zu heilen. Nuubu musste jedoch keine solchen Versprechen machen, da die Effekte genau das waren, was wir brauchten. Diejenigen, die Nuubu ein paar Tage lang verwendeten, bemerkten, dass sie erfrischt aufwachten und tagsüber ohne Ablenkungen eine verbesserte Konzentration hatten.</li>
+                <li><strong>Sichtbare Entgiftungseffekte:</strong> Ein bemerkenswerter Effekt war die Farbänderung der Pads. Am ersten Morgen nach der Anwendung waren die Pads tiefschwarz, was auf die Toxine hinwies, die aus dem Körper ausgelaugt wurden. Im Laufe der Zeit wurden die Pads weniger schwarz, was ein klares visuelles Zeichen dafür bot, dass Ihr Körper entgiftet und sich verbessert.</li>
+                <li><strong>Fazit: </strong> Die Wahl der richtigen Fußpflaster macht den Unterschied. Wir haben viele Marken getestet, und Nuubu sticht durch seine Zuverlässigkeit und Wirksamkeit hervor. Wir empfehlen es sehr, da es echte Ergebnisse liefert, ohne dass falsche Behauptungen erforderlich sind.</li>
+            </ol>
+
+        </div>
+        
+        <br>
+        <h3>So bestellen Sie:</h3>
+        <div class="order-section">
+            <ol>
+                <li>Besuchen Sie die offizielle Nuubu-Website;</li>
+                <li>Wählen Sie die Anzahl der Geräte aus, die Sie kaufen möchten;</li>
+                <li>Geben Sie Ihre Versanddetails und Zahlungsmethode ein;</li>
+                <li>Lehnen Sie sich zurück und entspannen Sie sich, während Nuubu zu Ihnen nach Hause geliefert wird!</li>
+            </ol>
+        </div>
+        <br>
+        <button class="buy-button" style="box-shadow: 0 4px 4px 1px rgba(0, 0, 0, 0.8); position: relative;" onclick="window.location.href='../audetox/click'">Besuchen Sie den offiziellen Nuubu-Shop und sichern Sie sich 70% Rabatt</button> 
+    </div>
+   
+  <footer style="background-color: #303030; padding: 20px; text-align: center; margin-top: 40px;">
+    <div style="display: inline-block;">
+        <a href="privacy.html" style="margin-right: 15px;">Datenschutzrichtlinie</a>
+        <a href="terms.html" style="margin-right: 15px;">Nutzungsbedingungen</a>
+        <a href="about.html" style="margin-right: 15px;">Über uns</a>
+        <a href="advertising.html" style="margin-right: 15px;">Werbung</a>
+
+        <p style="color:#a2a2a2; padding-top: 20px;" >
+          Diese Seite ist eine kostenlose Online-Ressource, die bestrebt ist, ihren Besuchern hilfreiche Inhalte und Vergleichsfunktionen anzubieten. Bitte beachten Sie, dass der Betreiber dieser Seite Werbekompensation von Unternehmen akzeptiert, die auf der Seite erscheinen, und dass diese Kompensation die Platzierung und Reihenfolge beeinflusst, in der die Unternehmen (und/oder ihre Produkte) präsentiert werden, und in einigen Fällen auch die Bewertung, die ihnen zugewiesen wird. Soweit Bewertungen auf dieser Seite erscheinen, wird diese Bewertung durch unsere subjektive Meinung bestimmt und basiert auf einer Methodik, die unsere Analyse des Marktanteils und des Rufs der Marke, die Konversionsraten jeder Marke, die an uns gezahlte Kompensation und das allgemeine Verbraucherinteresse aggregiert. Unternehmenslisten auf dieser Seite implizieren keine Befürwortung. Sofern nicht ausdrücklich in unseren Nutzungsbedingungen festgelegt, werden alle Zusicherungen und Gewährleistungen in Bezug auf die auf dieser Seite präsentierten Informationen abgelehnt. Die Informationen, einschließlich der Preise, die auf dieser Seite erscheinen, können jederzeit geändert werden.
+        </p>
+    </div>
+    <p style="margin-top: 10px; color: #a2a2a2;">Copyright © 2025 | Alle Rechte vorbehalten.</p>
+</footer>
+
+<script>
+    $(document).ready(function() {
+        // 更新日期
+        function updateDate() {
+            const date = new Date();
+            const options = { year: 'numeric', month: 'long', day: 'numeric' };
+            const formattedDate = date.toLocaleDateString('de-DE', options);
+            document.getElementById('currentDate').textContent = formattedDate;
+        }
+        updateDate();
+    });
+</script>
+<script>
+  // 解码函数，处理双重编码等问题
+  function safeDecode(value) {
+      try {
+          // 尝试双重解码
+          const once = decodeURIComponent(value);
+          const twice = decodeURIComponent(once);
+          return twice;
+      } catch (e) {
+          try {
+              // 如果双重解码失败，退回一次解码
+              return decodeURIComponent(value);
+          } catch (err) {
+              // 解码失败则返回原始值
+              return value;
+          }
+      }
+  }
+
+  // 获取 URL 参数并尝试多层解码
+  function getURLParameter(name) {
+      const urlParams = new URLSearchParams(window.location.search);
+      const rawValue = urlParams.get(name);
+      return rawValue ? safeDecode(rawValue) : null;
+  }
+
+  // 获取并处理参数
+  const utmTerm = getURLParameter('utm_term');
+  const gclid = getURLParameter('gclid');
+  const gbraid = getURLParameter('gbraid');
+
+  // 保存 utm_term
+  if (utmTerm) {
+      localStorage.setItem('utm_term', utmTerm);
+      console.log('UTM Term:', utmTerm);
+  }
+
+  // 保存 gclid，如果没有则保存 gbraid
+  if (gclid) {
+      localStorage.setItem('gclid', gclid);
+  } else if (gbraid) {
+      localStorage.setItem('gclid', gbraid);
+  }
+</script>
