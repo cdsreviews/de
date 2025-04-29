@@ -33,13 +33,15 @@
         }
 
         .banner {
-            background-color: #d2d2d2;
-            color: #000000;
+            background-color: #4CAF50; /* 更改背景色为绿色 */
+            color: #FFFFFF; /* 更改文字颜色为白色 */
             text-align: center;
-            padding: 10px;
+            padding: 5px; /* 增加内边距 */
             margin-bottom: 20px;
-            font-size: 18px;
+            font-size: 18px; /* 增大字体 */
             font-weight: bold;
+            border-radius: 8px; /* 添加圆角 */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 添加阴影效果 */
         }
 
         .product-ranking {
@@ -343,7 +345,7 @@
     .content img {
         display: block;
         margin: -20px auto;
-        max-width: 100%;
+        height: auto;
     }
     .customer-reviews {
         background-color: #f8f9fa;
@@ -465,6 +467,21 @@
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         border: 2px dashed #ffcc00; /* 添加虚线边框 */
     }
+    .logo-container {
+        text-align: center;
+        margin: 20px 0;
+    }
+
+    .center-logo {
+        max-width: 30%; /* 进一步调整Logo的最大宽度 */
+        height: auto;
+    }
+
+    @media (max-width: 768px) {
+        .center-logo {
+            width: 60%; /* 在手机端进一步调整Logo大小 */
+        }
+    }
     </style>
 </head>
 <body>
@@ -491,6 +508,9 @@
         </div>
     </div>
     <div class="content">
+        <div class="logo-container">
+            <img src="style/logo.png" alt="Logo" class="center-logo">
+        </div>
         <div class="banner"><h1>Top 5 Beste Detox Fußpflaster unter 20 € im Jahr 2025</h1>
           
         </div>
