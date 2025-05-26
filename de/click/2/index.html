@@ -1,40 +1,39 @@
-<script type="text/javascript">
-    // 从localStorage获取gclid和utm_term
-    const gclid = localStorage.getItem('gclid');
-    const utmTerm = localStorage.getItem('utm_term');
-
-    // 解码函数，防止编码导致的乱码
-    function safeDecode(value) {
-        try {
-            // 尝试两次解码
-            const once = decodeURIComponent(value);
-            const twice = decodeURIComponent(once);
-            return twice;
-        } catch (e) {
-            try {
-                // 如果双重解码失败，则尝试一次解码
-                return decodeURIComponent(value);
-            } catch (err) {
-                // 解码失败时返回原始值
-                return value;
+    <script>
+        (function () {
+            function safeDecode(value) {
+                try {
+                    return decodeURIComponent(decodeURIComponent(value));
+                } catch (e) {
+                    try {
+                        return decodeURIComponent(value);
+                    } catch {
+                        return value;
+                    }
+                }
             }
-        }
-    }
 
-    // 检查gclid和utm_term是否存在，并解码
-    if (gclid && utmTerm) {
-        // 解码gclid和utm_term
-        const decodedGclid = safeDecode(gclid);
-        const decodedUtmTerm = safeDecode(utmTerm);
+            function getURLParameter(name) {
+                const urlParams = new URLSearchParams(window.location.search);
+                const rawValue = urlParams.get(name);
+                return rawValue ? safeDecode(rawValue) : null;
+            }
 
-        // 动态生成URL，插入gclid和utm_term
-        const url = `https://click-ecom.com/?a=146518&c=398913&co=194328&mt=5&s1=Google&s2=XHD&s3=AW-16992410965/wVD3CO-2-rcaENW6zqY_&s4=latestconsumerreviews.com&s5=${decodedGclid}&utm_term=${decodedUtmTerm}`;
+            let gclid = getURLParameter('gclid') || localStorage.getItem('gclid') || '0';
+            let utmTerm = getURLParameter('utm_term') || localStorage.getItem('utm_term') || '0';
 
-        // 重定向到构造的URL
-        window.location.href = url;
-    } else {
-        // 如果gclid或utm_term不存在，使用默认的URL
-        const defaultUrl = 'https://click-ecom.com/?a=146518&c=398913&co=194328&mt=5&s1=Google&s2=XHD&s3=AW-16992410965/wVD3CO-2-rcaENW6zqY_&s4=latestconsumerreviews.com'; // 替换为你想要的默认URL
-        window.location.href = defaultUrl;
-    }
-</script>
+            // 存入 localStorage 方便后续使用
+            localStorage.setItem('gclid', gclid);
+            localStorage.setItem('utm_term', utmTerm);
+
+            // 构造跳转 URL
+            const targetUrl = 'https://click-ecom.com/?a=146518&c=398913&co=194328&mt=5'
+                + '&s1=Google&s2=XHD'
+                + '&s3=AW-16992410965/wVD3CO-2-rcaENW6zqY_'
+                + '&s4=de-h026.onrender.com'
+                + '&s5=' + encodeURIComponent(gclid)
+                + '&utm_term=' + encodeURIComponent(utmTerm);
+
+            // 执行跳转
+            window.location.href = targetUrl;
+        })();
+    </script>
